@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Create from "./components/Create";
-import Results from "./components/Results";
 
 export default class App extends Component {
   constructor(props) {
@@ -58,9 +57,9 @@ export default class App extends Component {
             <Route path="/">
               <Create ingredient={this.state.ingredient.drinks} />
             </Route>
-            <Route path="/results">
+            {/* <Route path="/results">
               <Results />
-            </Route>
+            </Route> */}
           </Router>
         </>
       );
