@@ -1,16 +1,34 @@
-import React from "react";
+import React, { Component } from "react";
 
-const Create = (props) => {
-  console.log(props.ingredient[0]);
-  return (
-    <>
-      <form onSubmit={this.props.handleFormSubmit}>
-        {props.ingredient.map((ingredient) => {
-          return <div>{ingredient.strIngredient1}</div>;
-        })}
-      </form>
-    </>
-  );
-};
+export class Create extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedI: { value: "" },
+      //   selectedC: { value: "" },
+      //   selectedG: { value: "" },
+      //   selectedA: { value: "" }
+    };
+  }
+
+  handleChange = (event) => {
+    this.setState({ value: event.target.value });
+  };
+
+  render() {
+    return (
+      <>
+        <form onSubmit={this.state.handleFormSubmit}>
+          <select>
+            {this.props.ingredient.map((ingredient) => {
+              return <option>{ingredient.strIngredient1}</option>;
+            })}
+          </select>
+          <button type="submit">Create</button>
+        </form>
+      </>
+    );
+  }
+}
 
 export default Create;
