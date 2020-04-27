@@ -32,7 +32,6 @@ export default class App extends Component {
         ),
       ])
       .then((response) => {
-        console.log(response);
         this.setState({
           doneLoading: true,
           ingredient: response[0].data,
@@ -43,23 +42,18 @@ export default class App extends Component {
       });
   }
 
-  //   handleFormSubmit = event => {
-  //         event.preventDefault();
-  //         //axios request for cocktail list that match parameters
-  // }
-
   render() {
-    console.log(this.state.ingredient.drinks);
+    console.log(this.state.category);
     if (this.state.doneLoading === true) {
       return (
         <>
           <Router>
             <Route path="/">
-              <Create ingredient={this.state.ingredient.drinks} />
+              <Create
+                ingredient={this.state.ingredient.drinks}
+                category={this.state.category.drinks}
+              />
             </Route>
-            {/* <Route path="/results">
-              <Results />
-            </Route> */}
           </Router>
         </>
       );

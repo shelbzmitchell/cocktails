@@ -1,7 +1,13 @@
 import React from "react";
 
-function Results() {
-  return <div>Results!</div>;
-}
+const Results = (props) => {
+  return (
+    <>
+      {props.drinkList.map((drink, index) => {
+        return <div key={index}>{drink.strDrink}</div>;
+      })}
+    </>
+  );
+};
 
 export default Results;
